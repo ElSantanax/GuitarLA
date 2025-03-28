@@ -6,6 +6,11 @@ import { db } from "./data/db"
 function App() {
 
   const [data, setData] = useState(db)
+  const [cart, setCart] = useState([])
+
+  function addToCart(item) {
+    setCart(prevCart => [...preveCart, item])
+  }
 
   return (
     <>
@@ -17,6 +22,8 @@ function App() {
             <Guitar
               key={guitar.id}
               guitar={guitar}
+              setCart={setCart}
+              addToCart={addToCart}
             />
           ))}
         </div>
